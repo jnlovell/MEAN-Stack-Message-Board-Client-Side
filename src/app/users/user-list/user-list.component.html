@@ -1,0 +1,14 @@
+    <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h4 class="card-title">{{ listHeading }}</h4>
+          <ul class="list-group">
+            <li 
+              class="list-group-item" 
+              *ngFor="let user of users"
+              [class.list-group-item-primary]="user._id == owner"
+              [class.list-group-item-success]="user._id == currentUser">
+              <span *ngIf="user._id == currentUser">(You) </span> {{ user.firstName }} {{ user.lastName }} <span *ngIf="user._id == owner"> (Owner)</span>
+            </li>
+          </ul>
+        </div>
+      </div>

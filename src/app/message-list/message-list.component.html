@@ -1,0 +1,5 @@
+
+  <h2>Messages: </h2>
+  <div *ngFor="let message of messages">
+    <app-message (emitter)="emmitMessage($event)" [message]="message"></app-message>
+  </div>

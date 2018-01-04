@@ -1,0 +1,18 @@
+
+
+
+<div class="sticky-top">
+  <div class="list-group">
+      <a class="list-group-item list-group-item-action"
+      routerLink="/communities/community-list"
+      [class.active]="filterMode == 1"      
+      (click)="getAll()"
+      >Show All Communities</a>
+      <a class="list-group-item list-group-item-action"
+      *ngIf="registerService.loggedIn()"
+      routerLink="/communities/community-list"
+      [class.active]="filterMode == 2"
+      (click)="filterByCurrentUser()"
+      >Your Communities</a>
+  </div>
+</div>    

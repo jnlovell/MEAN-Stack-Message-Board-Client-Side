@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header">
+        <h3>{{ community.name }}</h3>        
+    </div>
+  <div class="card-body">
+    <div><strong>Owner: </strong>{{ owner.firstName }} {{ owner.lastName }}</div>
+    <div><strong>Topic: </strong>{{ community.topic }}</div>
+    <div><strong>Public: </strong>{{ community._public }}</div>
+    <div><strong>Members: </strong>{{ community.members.length }}</div>
+    <div class="row">
+      <a routerLink="/communities/community-details/{{community._id}}" class="btn btn-primary">View</a>
+      <div *ngIf="registerService.loggedIn()">
+        <a *ngIf="community._public && !belongsToCurrentUser && !userAlreadyAdded" routerLink="/communities/community-list" class="btn btn-success" (click)="joinCommunity()">Join</a>
+        <a *ngIf="!community._public && !belongsToCurrentUser && !userAlreadyAdded" routerLink="/communities/community-list" class="btn btn-success">Request Join</a>   
+        <a *ngIf="!belongsToCurrentUser && userAlreadyAdded" routerLink="/communities/community-list" class="btn btn-danger" (click)="leaveCommunity()">Leave</a> 
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="col-6">
+  <div class="card" style="width: 20rem;">
+      <div class="card-body">
+  <h2>New Message</h2>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea class="form-control" id="message" name="message" formControlName="message" ></textarea>
+        <div 
+        class="alert alert-danger" 
+        *ngIf="myForm.get('message').hasError('required') && myForm.get('message').touched">
+          Message required
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Submit</button>  
+    </form>
+    </div>
+  </div>      
+</div> 

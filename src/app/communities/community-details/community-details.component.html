@@ -1,0 +1,27 @@
+<div class="row">
+<div class="col-lg-4">
+    <div class="sticky-top">
+        <h1>{{ community.name }}</h1>
+        <hr>
+        <div>
+            <span class="badge badge-primary"><h3>Topic: {{ community.topic }}</h3></span>
+        </div>
+            <app-user-list 
+            [community]="communityId"
+            [owner]="community.owner" 
+            [listHeading]="'Community Members'" >
+            </app-user-list>   
+        </div>
+</div>         
+<div class="col-lg-5">
+    <app-message-list (emitter)="emmitMessage($event)" [communityId]="communityId"></app-message-list>            
+</div>
+<div class="col-lg-3">
+    <div class="sticky-top">
+        <app-message-form [communityId]="communityId"></app-message-form>   
+        <app-message-detail-card *ngIf="toggleMessageDetail" [message]="messageDetail"></app-message-detail-card>
+    </div>
+</div>
+</div>
+
+
